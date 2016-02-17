@@ -1,0 +1,11 @@
+Options +FollowSymlinks -MultiViews
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} !backend\web\.php  [NC]
+RewriteRule ^admin(.*)  /backend/web/$1   [QSA,L,NC]
+
+RewriteCond %{REQUEST_URI} !index\.php      [NC]
+RewriteCond %{REQUEST_URI} !backend         [NC]
+RewriteRule ^(.*)      frontend/web/$1   [QSA,L,NC]
+
